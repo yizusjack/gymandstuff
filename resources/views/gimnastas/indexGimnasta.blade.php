@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Gimnastas</h1>
+    <ul>
+        @foreach ($gimnastas as $gim)
+            <li>{{$gim->id}} - {{$gim->nombre_g}}</li>
+        @endforeach
+    </ul>
 </body>
 </html>

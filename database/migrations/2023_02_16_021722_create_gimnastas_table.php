@@ -11,7 +11,7 @@ class CreateGimnastasTable extends Migration
      *
      * @return void
      */
-    public function up() //avanza el diseño
+    public function up()
     {
         Schema::create('gimnastas', function (Blueprint $table) {
             $table->id();
@@ -27,7 +27,7 @@ class CreateGimnastasTable extends Migration
      *
      * @return void
      */
-    public function down() //ctrl z
+    public function down()
     {
         Schema::dropIfExists('gimnastas');
     }
