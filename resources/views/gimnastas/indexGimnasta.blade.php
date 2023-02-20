@@ -10,7 +10,7 @@
     <h1>Gimnastas</h1>
     <ul>
         @foreach ($gimnastas as $gim)
-            <li>{{$gim->id}} - {{$gim->nombre_g}}</li>
+            <li>{{$gim->id}} - {{$gim->nombre_g}}  {{$gim->apellido_g}}</li>
         @endforeach
     </ul>
 </body>

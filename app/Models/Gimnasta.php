@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Gimnasta extends Model
 {
     use HasFactory;
+    //protected $table = 'nombre';
+    //public timestamps=false;
 }

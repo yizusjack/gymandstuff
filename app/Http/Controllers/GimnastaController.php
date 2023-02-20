@@ -14,7 +14,7 @@ class GimnastaController extends Controller
      */
     public function index()
     {
-        $gimnastas = Gimnasta::all();
+        $gimnastas = Gimnasta::all(); //puede ser get()
         return view('gimnastas.indexGimnasta', compact('gimnastas'));
     }
 
@@ -25,7 +25,7 @@ class GimnastaController extends Controller
      */
     public function create()
     {
-        //
+        return view('gimnastas.createGimnasta');
     }
 
     /**
@@ -36,7 +36,19 @@ class GimnastaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre_g' => ['required', 'max:255'],
+            'apellido_g' => ['required', 'max:255'],
+            'fecha_n_g'=> ['required', 'date'],
+        ]);
+
+        $gimnasta = new Gimnasta();
+        $gimnasta->nombre_g = $request->nombre_g;
+        $gimnasta->apellido_g = $request->apellido_g;
+        $gimnasta->fecha_n_g = $request->fecha_n_g;
+        $gimnasta->save();
+
+        return redirect('gimnasta');
     }
 
     /**

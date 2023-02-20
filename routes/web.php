@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/gimnastas', [GimnastaController::class, 'index']);
+//Route::get('/gimnastas', [GimnastaController::class, 'index']);
+
+Route::resource('gimnasta', GimnastaController::class);
