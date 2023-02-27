@@ -20,4 +20,6 @@ Route::get('/', function () {
 
 //Route::get('/gimnastas', [GimnastaController::class, 'index']);
 
-Route::resource('gimnasta', GimnastaController::class);
+Route::resource('gimnasta', GimnastaController::class)->parameters([
+    'gimnasta' => 'gimnasta'
+]);

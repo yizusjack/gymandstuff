@@ -59,7 +59,7 @@ class GimnastaController extends Controller
      */
     public function show(Gimnasta $gimnasta)
     {
-        //
+        return view('gimnastas/show-gimnasta', compact('gimnasta'));
     }
 
     /**
@@ -70,7 +70,7 @@ class GimnastaController extends Controller
      */
     public function edit(Gimnasta $gimnasta)
     {
-        //
+        return view('gimnastas/edit-gimnasta', compact('gimnasta'));
     }
 
     /**
@@ -82,7 +82,17 @@ class GimnastaController extends Controller
      */
     public function update(Request $request, Gimnasta $gimnasta)
     {
-        //
+        $request->validate([
+            'nombre_g' => ['required', 'max:255'],
+            'apellido_g' => ['required', 'max:255'],
+            'fecha_n_g'=> ['required', 'date'],
+        ]);
+        
+        $gimnasta->nombre_g = $request->nombre_g;
+        $gimnasta->apellido_g = $request->apellido_g;
+        $gimnasta->fecha_n_g = $request->fecha_n_g;
+        $gimnasta->save();
+        return redirect()->route('gimnasta.show', $gimnasta);
     }
 
     /**
