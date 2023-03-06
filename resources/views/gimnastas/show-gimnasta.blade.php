@@ -13,5 +13,13 @@
     <h4>{{$gimnasta->fecha_n_g}}</h4>
 
     <a href="{{route('gimnasta.edit', $gimnasta)}}">Editar</a>
+
+    <p>
+        <form action="{{route('gimnasta.destroy', $gimnasta)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Borrar</button>
+        </form>
+    </p>
 </body>
 </html>

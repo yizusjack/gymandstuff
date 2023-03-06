@@ -103,6 +103,7 @@ class GimnastaController extends Controller
      */
     public function destroy(Gimnasta $gimnasta)
     {
-        //
+        $gimnasta->delete();
+        return redirect()->route('gimnasta.index');
     }
 }
